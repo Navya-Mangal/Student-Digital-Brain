@@ -7,7 +7,11 @@ st.set_page_config(
     layout="wide"
 )
 
-with open("assets/style.css") as f:
+from pathlib import Path
+
+css_path = Path(__file__).parent.parent / "assets" / "style.css"
+
+with open(css_path, encoding="utf-8") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 left, right = st.columns([1.3,1], gap="large")
